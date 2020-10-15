@@ -5,47 +5,32 @@ using namespace std;
 class Car
 {
 protected:
-	string model;
-	string engine;
-	double tank; // volume
-	int seats; // num of seats
-	bool transmission; // 1 - auto, 0 - machanic
-	bool wheel; // 1 - left, 0 - right
+	string* model;
+	int numofcyl;
+	int power;
 public:
 	Car() {}
-	Car(string model, string engine, double tank, int seats, bool transmission, bool wheel) 
+	Car(string* model, int numofcyl, int power)
 	{
 		this->model = model;
-		this->engine = engine;
-		this->tank = tank;
-		this->seats = seats;
-		this->transmission = transmission;
-		this->wheel = wheel;
+		this->numofcyl = numofcyl;
+		this->power = power;
 	}
 	~Car() {}
 
-	void SetModel(const string model) { this->model = model; }
-	void SetEngine(const string engine) { this->engine = engine; }
-	void SetTank(double tank) { this->tank = tank; }
-	void SetSeats(int seats) { this->seats = seats; }
-	void SetTransmission(bool transmission) { this->transmission = transmission; }
-	void SetWheel(bool wheel) { this->wheel = wheel; }
+	void SetModel(const string* model) { this->model = (string*)model; }
+	void SetNumofcyl(int numofcyl) { this->numofcyl = numofcyl; }
+	void SetPower(int power) { this->power = power; }
 
 	auto GetModel() { return model; }
-	auto GetEngine() { return engine; }
-	auto GetTank() { return tank; }
-	auto GetSeats() { return seats; }
-	auto GetTransmission() { return transmission; }
-	auto GetWheel() { return wheel; }
+	auto GetNumofcyl() { return numofcyl; }
+	auto GetPower() { return power; }
 
 	void print()
 	{
 		cout <<
-			"Model is " << this->model << "\n" <<
-			"Engine type is " << this->engine << "\n" <<
-			"Volume - " << this->tank << "\n" <<
-			"Num of seats is " << this->seats << "\n";
-		cout << this->transmission ? "automatic\n" : "mechanic\n";
-		cout << this->wheel ? "left\n" : "right\n";
+			"Model is " << *(this->model) << "\n" <<
+			"Num of cylinders is " << this->numofcyl << "\n" <<
+			"Power of engine is " << this->power << endl;
 	}
 };

@@ -7,14 +7,26 @@
 
 //Написать программу, демонстрирующую все разработанные элементы класса.
 
-#include <iostream>
-using namespace std;
+#include "Truck.h"
 
 int main()
 {
 	setlocale(LC_ALL, "rus");
 
+	string Marks[5] = { "Man","Ford","Kamaz","Kia","Tesla" };
 
+	Car a(&Marks[1], 5, 1000);
+	a.print();
+
+	cout << "=====================================\n";
+	Car b;
+	b.SetModel(&Marks[4]);
+	b.SetNumofcyl(7);
+	b.SetPower(1600);
+	b.print();
+	cout << "=====================================\n";
+	Truck c(&Marks[1], 10, 2000, 4000);
+	c.print();
 
 	return 0;
 }
