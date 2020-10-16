@@ -22,10 +22,15 @@ int main()
 	Car b;
 	b.SetModel(&Marks[4]);
 	b.SetNumofcyl(7);
+	b.SetNumofcyl(7);
 	b.SetPower(1600);
 	b.print();
 	cout << "=====================================\n";
 	Truck c(&Marks[1], 10, 2000, 4000);
+	c.print();
+	c.ChangeMark(&Marks[4]);
+	c.ChangeTonnage(5000);
+	cout << "=====================================\n";
 	c.print();
 
 	return 0;

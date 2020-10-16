@@ -9,7 +9,11 @@ protected:
 	int numofcyl;
 	int power;
 public:
-	Car() {}
+	Car() {
+		this->model = NULL;
+		this->numofcyl = -1;
+		this->power = -1;
+	}
 	Car(string* model, int numofcyl, int power)
 	{
 		this->model = model;
@@ -18,9 +22,10 @@ public:
 	}
 	~Car() {}
 
-	void SetModel(const string* model) { this->model = (string*)model; }
-	void SetNumofcyl(int numofcyl) { this->numofcyl = numofcyl; }
-	void SetPower(int power) { this->power = power; }
+	void SetModel(const string* model) { if (this->model == NULL)this->model = (string*)model; else cout << "Модель уже введена\n"; }
+	void SetNumofcyl(int numofcyl) { if (this->numofcyl == -1)this->numofcyl = numofcyl; else cout << "Число цилиндров уже введено\n"; }
+	void SetPower(int power) { if (this->power == -1) this->power = power; else cout << "Мощность уже введена\n";
+	}
 
 	auto GetModel() { return model; }
 	auto GetNumofcyl() { return numofcyl; }
